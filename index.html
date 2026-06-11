@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA pour la sécurité civile</title>
+<meta name="description" content="Recherche et démonstrateurs en intelligence artificielle au service des services de secours et d'urgence : traitement des appels, anticipation de la demande opérationnelle, prévention et conformité. Pr. Christophe Guyeux, Institut FEMTO-ST.">
+<style>
+  :root{
+    --bg:#0f1623; --panel:#161f30; --panel-2:#1d2840; --ink:#e8edf5;
+    --muted:#9fb0c8; --line:#26324b; --accent:#d33a2c; --accent-2:#3b82f6;
+    --chip:#1e2a42;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 22px}
+
+  header{
+    background:
+      radial-gradient(1200px 400px at 80% -120px, rgba(59,130,246,.18), transparent),
+      radial-gradient(900px 360px at 0% -80px, rgba(211,58,44,.18), transparent),
+      var(--panel);
+    border-bottom:1px solid var(--line);
+    padding:64px 0 52px;
+  }
+  .eyebrow{
+    display:inline-block; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); border:1px solid var(--line); border-radius:999px;
+    padding:5px 13px; margin-bottom:20px; background:var(--chip);
+  }
+  h1{font-size:2.55rem; line-height:1.12; margin:.1em 0 .35em; letter-spacing:-.01em}
+  .lead{font-size:1.12rem; color:var(--muted); max-width:62ch; margin:0}
+  .affil{margin-top:22px; font-size:.95rem; color:var(--muted)}
+  .affil strong{color:var(--ink); font-weight:600}
+
+  section{padding:54px 0}
+  section.alt{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  h2{font-size:1.0rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 26px}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px}
+  .card{
+    background:var(--panel-2); border:1px solid var(--line); border-radius:16px;
+    padding:26px 24px; display:flex; flex-direction:column;
+  }
+  section.alt .card{background:var(--bg)}
+  .card .tag{font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-2); font-weight:700; margin-bottom:10px}
+  .card h3{margin:0 0 10px; font-size:1.35rem}
+  .card p{margin:0 0 18px; color:var(--muted); font-size:.99rem}
+  .card .spacer{flex:1}
+  .links{display:flex; flex-wrap:wrap; gap:10px}
+  .btn{
+    display:inline-flex; align-items:center; gap:7px; text-decoration:none;
+    font-size:.92rem; font-weight:600; padding:9px 15px; border-radius:10px;
+    border:1px solid var(--line); background:transparent; color:var(--ink);
+    transition:border-color .15s, background .15s, transform .05s;
+  }
+  .btn:hover{border-color:var(--accent-2); background:rgba(59,130,246,.10)}
+  .btn:active{transform:translateY(1px)}
+  .btn.live{border-color:transparent; background:var(--accent); color:#fff}
+  .btn.live:hover{background:#e24536}
+  .btn .dot{width:7px; height:7px; border-radius:50%; background:#fff; box-shadow:0 0 0 0 rgba(255,255,255,.7); animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}70%{box-shadow:0 0 0 7px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+
+  .axes{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px}
+  .axis{border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:var(--panel-2)}
+  section.alt .axis{background:var(--bg)}
+  .axis b{display:block; margin-bottom:4px; font-size:1rem}
+  .axis span{color:var(--muted); font-size:.9rem}
+
+  .note{margin-top:26px; font-size:.86rem; color:var(--muted); max-width:70ch}
+
+  footer{padding:40px 0 60px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:6px 22px; justify-content:space-between}
+
+  @media (max-width:560px){ h1{font-size:2rem} header{padding:48px 0 40px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Services de secours et d'urgence</span>
+    <h1>IA pour la sécurité civile</h1>
+    <p class="lead">Recherche et démonstrateurs en intelligence artificielle au service des sapeurs-pompiers et des services d'urgence : traitement des appels, anticipation de la demande opérationnelle, prévention et conformité. Une même exigence dans tous les projets : augmenter l'opérateur humain sans jamais le remplacer, sous les contraintes du domaine (temps réel, données sensibles, encadrement réglementaire de l'IA à haut risque).</p>
+    <p class="affil"><strong>Pr. Christophe Guyeux</strong>, Institut FEMTO-ST (CNRS UMR 6174), Université Marie et Louis Pasteur, Besançon.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Démonstrateurs et plateformes</h2>
+    <div class="grid">
+
+      <article class="card">
+        <div class="tag">IAppels</div>
+        <h3>Traitement assisté des appels d'urgence</h3>
+        <p>Assistant IA pour la prise d'appel (15, 17, 18, 112) : transcription en temps réel, détection de langue et traduction, extraction d'entités, classification du motif et du niveau d'urgence, résumé et aide au routage. Architecture sûre par conception (chemin chaud temps réel, chemin froid de vérification), supervision humaine obligatoire, conformité AI Act et RGPD.</p>
+        <div class="spacer"></div>
+        <div class="links">
+          <a class="btn live" href="https://samu-guardrail.gclab.fr" target="_blank" rel="noopener"><span class="dot"></span>Garde-fou de régulation (SAMU)</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="tag">PredictOps</div>
+        <h3>Anticipation de la demande opérationnelle</h3>
+        <p>Prévision en temps réel de l'activité des SDIS : secours à personne, incendies, feux d'espaces naturels, inondations, en croisant météo, qualité de l'air et signaux épidémiologiques. Objectif : aider à l'armement des centres et à l'anticipation des pics d'activité.</p>
+        <div class="spacer"></div>
+        <div class="links">
+          <a class="btn live" href="https://dashboard.predictops.fr" target="_blank" rel="noopener"><span class="dot"></span>Tableau de bord PredictOps</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="tag">[AI]rgos</div>
+        <h3>Prévention et conformité ERP</h3>
+        <p>Assistance à la vérification de la conformité incendie des établissements recevant du public : lecture des documents réglementaires, contrôle de complétude et aide à l'instruction des dossiers de prévention.</p>
+        <div class="spacer"></div>
+        <div class="links">
+          <a class="btn live" href="https://airgos97588914-dashboard.functions.fnc.fr-par.scw.cloud" target="_blank" rel="noopener"><span class="dot"></span>Tableau de bord [AI]rgos</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Programme scientifique IAppels</h2>
+    <p class="lead" style="margin-bottom:26px">Une série d'articles couvre les facettes propres au traitement des appels d'urgence assisté par IA générative, de la reconnaissance vocale en conditions dégradées jusqu'à la gouvernance et la conformité réglementaire.</p>
+    <div class="axes">
+      <div class="axis"><b>État de l'art</b><span>Panorama de l'IA générative pour les appels d'urgence et cartographie des cas d'usage.</span></div>
+      <div class="axis"><b>Reconnaissance vocale robuste</b><span>Transcription en conditions dégradées, spécificités acoustiques et prosodiques, équité face aux accents et aux langues.</span></div>
+      <div class="axis"><b>Incertitude maîtrisée</b><span>Quantification conforme de l'incertitude, abstention et faux verts à taux nul pour la décision critique.</span></div>
+      <div class="axis"><b>Multilinguisme</b><span>Traduction automatique et alternance codique dans le contexte de l'appel d'urgence.</span></div>
+      <div class="axis"><b>Données et corpus</b><span>Constitution de corpus, dé-identification, barrières et perspectives sur les données de santé.</span></div>
+      <div class="axis"><b>Cadre réglementaire</b><span>Conformité AI Act, système à haut risque, supervision humaine et biais d'automatisation.</span></div>
+      <div class="axis"><b>Fiabilité opérationnelle</b><span>MLOps orienté sûreté, modes dégradés et résilience, agent de complétude ancré dans la réglementation.</span></div>
+      <div class="axis"><b>Robustesse adverse</b><span>Comportement face aux interactions adverses et aux situations conversationnelles difficiles.</span></div>
+    </div>
+    <p class="note">Les données opérationnelles des services de secours ne sont pas redistribuables. Les démonstrateurs publics reposent sur des données proxy ou synthétiques, et tout traitement de données sensibles est conçu pour rester local, sans exfiltration vers des services tiers.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Pr. Christophe Guyeux, Institut FEMTO-ST, Université Marie et Louis Pasteur.</span>
+    <span>IA pour la sécurité civile</span>
+  </div>
+</footer>
+
+</body>
+</html>
